@@ -524,6 +524,10 @@ namespace Nez.Tiled
 			{
 				obj.Tile = new TmxLayerTile(map, (uint)xGid);
 				obj.ObjectType = TmxObjectType.Tile;
+				// Tiled uses bottom-left for tile objects, adjust to top-left
+				var tileset = map.GetTilesetForTileGid(obj.Tile.Gid);
+				var sourceRect = tileset.TileRegions[obj.Tile.Gid];
+				obj.Y -= sourceRect.Height;
 			}
 			else if (xEllipse != null)
 			{
@@ -577,6 +581,10 @@ namespace Nez.Tiled
 			{
 				obj.Tile = new TmxLayerTile(map, (uint)xGid);
 				obj.ObjectType = TmxObjectType.Tile;
+				// Tiled uses bottom-left for tile objects, adjust to top-left
+				var tileset = map.GetTilesetForTileGid(obj.Tile.Gid);
+				var sourceRect = tileset.TileRegions[obj.Tile.Gid];
+				obj.Y -= sourceRect.Height;
 			}
 			else if (xEllipse != null)
 			{
