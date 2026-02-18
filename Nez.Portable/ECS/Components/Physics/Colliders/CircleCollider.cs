@@ -8,7 +8,7 @@ namespace Nez
 		[Inspectable]
 		public float Radius
 		{
-			get => ((Circle) Shape).Radius;
+			get => ((Circle)Shape).Radius;
 			set => SetRadius(value);
 		}
 
@@ -71,8 +71,8 @@ namespace Nez
 
 		public override void DebugRender(Batcher batcher)
 		{
-			batcher.DrawHollowRect(Bounds, Debug.Colors.ColliderBounds, Debug.Size.LineSizeMultiplier);
-			batcher.DrawCircle(Shape.Position, ((Circle) Shape).Radius, Debug.Colors.ColliderEdge,
+			batcher.DrawHollowRect(Bounds, debugColor, Debug.Size.LineSizeMultiplier);
+			batcher.DrawCircle(Shape.Position, ((Circle)Shape).Radius, Debug.Colors.ColliderEdge,
 				Debug.Size.LineSizeMultiplier);
 			batcher.DrawPixel(Entity.Transform.Position, Debug.Colors.ColliderPosition,
 				4 * Debug.Size.LineSizeMultiplier);
@@ -81,7 +81,7 @@ namespace Nez
 
 		public override string ToString()
 		{
-			return string.Format("[CircleCollider: bounds: {0}, radius: {1}", Bounds, ((Circle) Shape).Radius);
+			return string.Format("[CircleCollider: bounds: {0}, radius: {1}", Bounds, ((Circle)Shape).Radius);
 		}
 	}
 }

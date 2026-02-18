@@ -12,6 +12,8 @@ namespace Nez
 		/// </summary>
 		public Shape Shape;
 
+		public Color debugColor = Debug.Colors.ColliderBounds;
+
 		/// <summary>
 		/// localOffset is added to entity.position to get the final position for the collider geometry. This allows you to add multiple
 		/// Colliders to an Entity and position them separately and also lets you set the point of rotation/scale.
@@ -114,12 +116,12 @@ namespace Nez
 		{
 			if (_localOffset != offset)
 			{
-				if(Enabled)
+				if (Enabled)
 					UnregisterColliderWithPhysicsSystem();
 				_localOffset = offset;
 				_localOffsetLength = _localOffset.Length();
 				_isPositionDirty = true;
-				if(Enabled)
+				if (Enabled)
 					RegisterColliderWithPhysicsSystem();
 			}
 
@@ -185,7 +187,7 @@ namespace Nez
 			}
 
 			_isParentEntityAddedToScene = true;
-			if(Enabled)
+			if (Enabled)
 				RegisterColliderWithPhysicsSystem();
 		}
 
