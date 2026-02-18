@@ -40,7 +40,7 @@ namespace Nez
 		public override void DebugRender(Batcher batcher)
 		{
 			var poly = Shape as Polygon;
-			batcher.DrawHollowRect(Bounds, debugColor, Debug.Size.LineSizeMultiplier);
+			batcher.DrawHollowRect(Bounds, DebugColor, Debug.Size.LineSizeMultiplier);
 			batcher.DrawPolygon(Shape.Position, poly.Points, Debug.Colors.ColliderEdge, true,
 				Debug.Size.LineSizeMultiplier);
 			batcher.DrawPixel(Entity.Transform.Position, Debug.Colors.ColliderPosition,

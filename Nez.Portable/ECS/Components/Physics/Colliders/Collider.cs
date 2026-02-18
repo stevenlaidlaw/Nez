@@ -12,7 +12,7 @@ namespace Nez
 		/// </summary>
 		public Shape Shape;
 
-		public Color debugColor = Debug.Colors.ColliderBounds;
+		public Color DebugColor { get; set; } = Debug.Colors.ColliderBounds;
 
 		/// <summary>
 		/// localOffset is added to entity.position to get the final position for the collider geometry. This allows you to add multiple

@@ -138,7 +138,7 @@ namespace Nez
 			bounds.Y += Debug.Size.LineSizeMultiplier;
 			bounds.Width -= Debug.Size.LineSizeMultiplier;
 			bounds.Height -= Debug.Size.LineSizeMultiplier;
-			batcher.DrawHollowRect(bounds, debugColor, Debug.Size.LineSizeMultiplier);
+			batcher.DrawHollowRect(bounds, DebugColor, Debug.Size.LineSizeMultiplier);
 			batcher.DrawPixel(Entity.Transform.Position, Debug.Colors.ColliderPosition, Debug.Size.LineSizeMultiplier);
 		}
 
