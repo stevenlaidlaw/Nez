@@ -13,7 +13,7 @@ namespace Nez
 		{
 			public static Color DebugText = Color.White;
 
-			public static Color ColliderBounds = Color.White * 0.3f;
+			public static Color ColliderBounds = Color.Red * 0.7f;
 			public static Color ColliderEdge = Color.DarkRed;
 			public static Color ColliderPosition = Color.Yellow;
 			public static Color ColliderCenter = Color.Red;
@@ -29,8 +29,7 @@ namespace Nez
 		public static class Size
 		{
 			public static int LineSizeMultiplier =>
-				System.Math.Max(Mathf.CeilToInt((float) Core.Scene.SceneRenderTargetSize.X / Screen.Width),
-					1);
+				System.Math.Max(Mathf.CeilToInt((float)Core.Scene.SceneRenderTargetSize.X / Screen.Width), 1);
 		}
 	}
 }

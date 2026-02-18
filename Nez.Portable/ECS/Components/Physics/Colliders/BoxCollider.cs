@@ -10,7 +10,7 @@ namespace Nez
 		[Range(1, float.MaxValue, true)]
 		public float Width
 		{
-			get => ((Box) Shape).Width;
+			get => ((Box)Shape).Width;
 			set => SetWidth(value);
 		}
 
@@ -18,7 +18,7 @@ namespace Nez
 		[Range(1, float.MaxValue, true)]
 		public float Height
 		{
-			get => ((Box) Shape).Height;
+			get => ((Box)Shape).Height;
 			set => SetHeight(value);
 		}
 
@@ -132,14 +132,14 @@ namespace Nez
 
 		public override void DebugRender(Batcher batcher)
 		{
-			var poly = Shape as Polygon;
-			batcher.DrawHollowRect(Bounds, Debug.Colors.ColliderBounds, Debug.Size.LineSizeMultiplier);
-			batcher.DrawPolygon(Shape.Position, poly.Points, Debug.Colors.ColliderEdge, true,
-				Debug.Size.LineSizeMultiplier);
-			batcher.DrawPixel(Entity.Transform.Position, Debug.Colors.ColliderPosition,
-				4 * Debug.Size.LineSizeMultiplier);
-			batcher.DrawPixel(Entity.Transform.Position + Shape.Center, Debug.Colors.ColliderCenter,
-				2 * Debug.Size.LineSizeMultiplier);
+			// This fix ensures we draw _within_ the bounds of the box
+			var bounds = Bounds;
+			bounds.X += Debug.Size.LineSizeMultiplier;
+			bounds.Y += Debug.Size.LineSizeMultiplier;
+			bounds.Width -= Debug.Size.LineSizeMultiplier;
+			bounds.Height -= Debug.Size.LineSizeMultiplier;
+			batcher.DrawHollowRect(bounds, Debug.Colors.ColliderBounds, Debug.Size.LineSizeMultiplier);
+			batcher.DrawPixel(Entity.Transform.Position, Debug.Colors.ColliderPosition, Debug.Size.LineSizeMultiplier);
 		}
 
 		public override string ToString()

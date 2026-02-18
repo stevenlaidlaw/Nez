@@ -146,7 +146,7 @@ namespace Nez
 				batcher.DrawHollowRect(Bounds, Debug.Colors.RenderableBounds);
 
 			// draw a square for our pivot/origin
-			batcher.DrawPixel(Entity.Transform.Position + _localOffset, Debug.Colors.RenderableCenter, 4);
+			batcher.DrawPixel(Entity.Transform.Position + _localOffset, Debug.Colors.RenderableCenter, 1);
 		}
 
 		/// <summary>
